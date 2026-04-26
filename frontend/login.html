@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor AI - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body data-auth-mode="login" class="auth-body">
+  <main class="auth-shell">
+    <section class="auth-panel auth-brand">
+      <div class="logo-mark">M</div>
+      <h1>Mentor AI</h1>
+      <p>Sign in to keep your conversations saved to your own account and reopen them anytime.</p>
+      <div class="auth-highlights">
+        <div>Private conversation history per user</div>
+        <div>Subject-specific tutoring sessions</div>
+        <div>Saved progress across visits</div>
+      </div>
+    </section>
+
+    <section class="auth-panel auth-card">
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab" data-auth-target="login">Log In</button>
+        <button type="button" class="auth-tab" data-auth-target="signup">Sign Up</button>
+      </div>
+
+      <p class="auth-message" id="authMessage">Use your account to access saved conversations.</p>
+
+      <form id="loginForm" class="auth-form">
+        <label class="auth-field">
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="auth-field">
+          <span>Password</span>
+          <input type="password" name="password" minlength="6" required>
+        </label>
+        <button type="submit" class="auth-submit">Log In</button>
+      </form>
+
+      <form id="signupForm" class="auth-form">
+        <label class="auth-field">
+          <span>Name</span>
+          <input type="text" name="name" minlength="2" required>
+        </label>
+        <label class="auth-field">
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+        <label class="auth-field">
+          <span>Password</span>
+          <input type="password" name="password" minlength="6" required>
+        </label>
+        <button type="submit" class="auth-submit">Create Account</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/auth.js"></script>
+</body>
+</html>

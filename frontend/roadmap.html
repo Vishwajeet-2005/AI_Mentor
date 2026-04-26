@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor AI - Roadmap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="roadmap-body">
+  <main class="roadmap-shell">
+    <header class="roadmap-header">
+      <div>
+        <p class="roadmap-kicker">Personalized plan</p>
+        <h1>Your learning roadmap</h1>
+        <p id="roadmapSubtitle" class="roadmap-subtitle">Generating a structured path from your profile...</p>
+      </div>
+      <div class="roadmap-header-actions">
+        <a class="account-action roadmap-nav" href="/dashboard.html">Dashboard</a>
+        <a class="account-action roadmap-nav" href="/">Back to chat</a>
+        <button class="auth-submit roadmap-refresh" id="refreshRoadmapBtn" type="button">Refresh roadmap</button>
+      </div>
+    </header>
+
+    <section class="roadmap-summary" id="roadmapSummary"></section>
+    <section class="task-board">
+      <div class="task-board-head">
+        <div>
+          <p class="roadmap-kicker">Daily focus</p>
+          <h2>Today’s tasks</h2>
+        </div>
+        <button class="auth-submit roadmap-refresh" id="refreshTasksBtn" type="button">Generate tasks</button>
+      </div>
+      <div class="task-list" id="taskList"></div>
+      <p class="task-empty hidden" id="taskEmpty">No tasks generated yet for today.</p>
+    </section>
+    <section class="roadmap-phases" id="roadmapPhases"></section>
+  </main>
+  <div id="mindmapModal" class="mindmap-modal hidden">
+    <div class="mindmap-modal-content">
+      <button id="closeMindmapBtn" class="mindmap-close">&times;</button>
+      <div id="mindmapLoading" class="mindmap-loading hidden">Generating mind map...</div>
+      <svg id="mindmapSvg" class="mindmap-svg"></svg>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-lib"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/roadmap.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor AI - Your Academic Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-mark">M</div>
+      <span class="logo-text">Mentor <em>AI</em></span>
+    </div>
+
+    <button class="new-chat-btn" id="newChatBtn">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M7 1v12M1 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+      </svg>
+      New Session
+    </button>
+
+    <section class="sidebar-history">
+      <div class="sidebar-section-label">Recents</div>
+      <div class="conversation-list" id="conversationList"></div>
+      <p class="conversation-empty" id="conversationEmpty">Your saved chats will appear here.</p>
+    </section>
+
+    <div class="sidebar-footer">
+      <div class="status-panel">
+        <p class="api-hint" id="apiStatus">Ready to chat</p>
+      </div>
+
+      <div class="account-panel">
+        <div class="account-copy">
+          <strong id="accountName">Loading...</strong>
+          <span id="accountEmail"></span>
+        </div>
+        <button class="account-action" id="logoutBtn">Log Out</button>
+      </div>
+    </div>
+  </aside>
+
+  <main class="chat-main" id="chatMain">
+    <header class="chat-header">
+      <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="chat-header-info">
+        <div class="chat-context-row">
+          <span class="chat-subject-badge" id="chatSubjectBadge">General Mentor</span>
+          <label class="subject-select-wrap" for="subjectSelect">
+            <span class="subject-select-label">Mode</span>
+            <select id="subjectSelect" class="subject-select">
+              <option value="general">General Mentor</option>
+              <option value="math">Mathematics</option>
+              <option value="science">Science</option>
+              <option value="coding">Programming</option>
+              <option value="writing">Writing & Essays</option>
+              <option value="history">History</option>
+            </select>
+          </label>
+        </div>
+        <h2 class="chat-title" id="activeConversationTitle">New conversation</h2>
+      </div>
+      <div class="header-actions">
+        <a class="icon-link" id="dashboardLink" href="/dashboard.html" title="Open dashboard">Dashboard</a>
+        <a class="icon-link" id="roadmapLink" href="/roadmap.html" title="Open roadmap">Roadmap</a>
+        <button class="icon-btn" id="clearChatBtn" title="Clear chat">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M2 4h12M5 4V2.5a.5.5 0 01.5-.5h5a.5.5 0 01.5.5V4m2 0l-.8 9.2a1 1 0 01-1 .8H4.8a1 1 0 01-1-.8L3 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="messages-container" id="messagesContainer">
+      <div class="welcome-screen" id="welcomeScreen">
+        <div class="welcome-inner">
+          <div class="welcome-avatar">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <circle cx="20" cy="20" r="20" fill="none"></circle>
+              <path d="M8 28c0-5 5-8 12-8s12 3 12 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+              <circle cx="20" cy="14" r="5" stroke="currentColor" stroke-width="1.5"></circle>
+              <path d="M26 10l2-2M14 10l-2-2M20 8V5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+            </svg>
+          </div>
+          <h1 class="welcome-title">Hello, I'm your Mentor</h1>
+          <p class="welcome-sub">Ask about math, science, coding, writing, or history and get guided explanations instead of one-line answers.</p>
+
+          <div class="starter-grid">
+            <button class="starter-card" data-prompt="I'm struggling with calculus derivatives. Can you help me understand the chain rule?">
+              <span class="starter-label">Math Help</span>
+              <span class="starter-text">Explain chain rule in calculus step by step</span>
+            </button>
+            <button class="starter-card" data-prompt="How do I write a strong thesis statement for my essay?">
+              <span class="starter-label">Writing</span>
+              <span class="starter-text">How to craft a compelling thesis statement</span>
+            </button>
+            <button class="starter-card" data-prompt="I'm learning JavaScript and confused about promises and async/await. Which should I use?">
+              <span class="starter-label">Coding</span>
+              <span class="starter-text">Promises vs async/await in JavaScript</span>
+            </button>
+            <button class="starter-card" data-prompt="Can you explain the causes of World War 1 in a way that's easy to remember?">
+              <span class="starter-label">History</span>
+              <span class="starter-text">WWI causes explained memorably</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="messages-list" id="messagesList"></div>
+    </div>
+
+    <div class="input-area">
+      <div class="input-wrapper" id="inputWrapper">
+        <textarea
+          id="userInput"
+          class="user-textarea"
+          placeholder="Ask your mentor anything..."
+          rows="1"
+          maxlength="4000"
+        ></textarea>
+        <div class="input-footer">
+          <span class="char-count" id="charCount">0 / 4000</span>
+          <button class="send-btn" id="sendBtn" disabled aria-label="Send message">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M14 8L2 2l2.5 6L2 14l12-6z" fill="currentColor"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <p class="input-disclaimer">Mentor AI can make mistakes. Verify important information.</p>
+    </div>
+  </main>
+
+  <div class="toast" id="errorToast" role="alert" aria-live="assertive">
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <circle cx="8" cy="8" r="7" stroke="currentColor" stroke-width="1.2"></circle>
+      <path d="M8 5v4M8 11v.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+    </svg>
+    <span id="toastMessage">Something went wrong.</span>
+    <button class="toast-close" id="toastClose" aria-label="Close notification">×</button>
+  </div>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/ui.js"></script>
+  <script src="./js/chat.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "mentor-ai-root",
+  "version": "1.0.0",
+  "description": "Root configuration for seamless Render deployment",
+  "scripts": {
+    "install": "npm install --prefix backend",
+    "start": "npm start --prefix backend",
+    "build": "echo 'No build step required for backend API'"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

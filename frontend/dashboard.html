@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor AI - Study Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="roadmap-body">
+  <main class="dashboard-shell">
+    <header class="roadmap-header">
+      <div>
+        <p class="roadmap-kicker">Study dashboard</p>
+        <h1>Your learning snapshot</h1>
+        <p id="dashboardSubtitle" class="roadmap-subtitle">Pulling together your roadmap, task progress, and learning focus.</p>
+      </div>
+      <div class="roadmap-header-actions">
+        <div class="notification-container">
+          <button id="notificationBtn" class="header-action-btn icon-btn notification-btn">
+            🔔 <span id="notificationBadge" class="notification-badge hidden"></span>
+          </button>
+          <div id="notificationPanel" class="notification-panel hidden">
+            <div class="notification-header">Notifications</div>
+            <div id="notificationList" class="notification-list"></div>
+          </div>
+        </div>
+        <a class="header-action-btn secondary-btn roadmap-nav" href="/">Back to chat</a>
+        <a class="header-action-btn primary-btn roadmap-nav" href="/roadmap.html">Roadmap</a>
+      </div>
+    </header>
+
+    <section class="dashboard-grid">
+      <article class="dashboard-panel dashboard-progress">
+        <div class="dashboard-panel-head">
+          <div>
+            <p class="roadmap-kicker">Progress</p>
+            <h2>Roadmap completion</h2>
+          </div>
+          <strong class="dashboard-highlight" id="progressPercent">0%</strong>
+        </div>
+        <div class="dashboard-progress-bar">
+          <span id="progressBar"></span>
+        </div>
+        <p class="dashboard-muted" id="progressSummary">No roadmap progress tracked yet.</p>
+      </article>
+
+      <article class="dashboard-panel">
+        <p class="roadmap-kicker">Tasks</p>
+        <h2>Completed vs pending</h2>
+        <div class="dashboard-metric-row">
+          <div class="dashboard-metric-card">
+            <span>Completed</span>
+            <strong id="completedTasksValue">0</strong>
+          </div>
+          <div class="dashboard-metric-card">
+            <span>Pending</span>
+            <strong id="pendingTasksValue">0</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="dashboard-panel">
+        <p class="roadmap-kicker">Focus</p>
+        <h2>Current focus topic</h2>
+        <p class="dashboard-focus-text" id="currentFocusValue">No current focus set yet.</p>
+      </article>
+
+      <article class="dashboard-panel">
+        <p class="roadmap-kicker">Consistency</p>
+        <h2>Streak</h2>
+        <div class="dashboard-streak-row">
+          <strong class="dashboard-streak-value" id="streakValue">0</strong>
+          <span class="dashboard-streak-label">days</span>
+        </div>
+        <p class="dashboard-muted">Counted from days where all planned tasks were completed.</p>
+      </article>
+    </section>
+
+    <section class="dashboard-duo">
+      <article class="dashboard-panel">
+        <p class="roadmap-kicker">Weak areas</p>
+        <h2>Keep an eye on these</h2>
+        <div class="dashboard-tag-list" id="weakAreasList"></div>
+        <p class="dashboard-muted hidden" id="weakAreasEmpty">No weak areas saved yet.</p>
+      </article>
+
+      <article class="dashboard-panel reality-check-panel">
+        <div class="dashboard-panel-head">
+          <div>
+            <p class="roadmap-kicker">Reality check</p>
+            <h2>Planned vs completed</h2>
+          </div>
+          <strong class="dashboard-date" id="realityDate"></strong>
+        </div>
+        <div class="dashboard-metric-row">
+          <div class="dashboard-metric-card">
+            <span>Planned</span>
+            <strong id="plannedTasksValue">0</strong>
+          </div>
+          <div class="dashboard-metric-card">
+            <span>Completed</span>
+            <strong id="realityCompletedValue">0</strong>
+          </div>
+          <div class="dashboard-metric-card">
+            <span>Rate</span>
+            <strong id="realityRateValue">0%</strong>
+          </div>
+        </div>
+        <p class="dashboard-reality-copy" id="realitySummary">No tasks planned yet.</p>
+      </article>
+    </section>
+  </main>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/dashboard.js"></script>
+</body>
+</html>

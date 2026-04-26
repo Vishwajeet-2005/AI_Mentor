@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor AI - Onboarding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="auth-body">
+  <main class="quiz-shell">
+    <section class="quiz-panel quiz-brand">
+      <div class="logo-mark">M</div>
+      <h1>Let’s personalize your mentor</h1>
+      <p>Answer a few quick questions so the chatbot can match your level, goals, and focus from the first session.</p>
+      <div class="quiz-progress-copy">
+        <span id="quizStepLabel">Question 1 of 7</span>
+        <div class="quiz-progress-bar"><span id="quizProgressBar"></span></div>
+      </div>
+    </section>
+
+    <section class="quiz-panel quiz-card">
+      <p class="auth-message" id="quizMessage">This takes about a minute.</p>
+
+      <form id="onboardingForm" class="quiz-form">
+        <section class="quiz-step active" data-step="1">
+          <h2 class="quiz-title">What’s your main goal right now?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="primaryGoal" value="Get job-ready skills" required><span>Get job-ready skills</span></label>
+            <label class="quiz-option"><input type="radio" name="primaryGoal" value="Build strong fundamentals"><span>Build strong fundamentals</span></label>
+            <label class="quiz-option"><input type="radio" name="primaryGoal" value="Prepare for interviews"><span>Prepare for interviews</span></label>
+            <label class="quiz-option"><input type="radio" name="primaryGoal" value="Finish projects consistently"><span>Finish projects consistently</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="2">
+          <h2 class="quiz-title">How would you describe your current level?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="skillLevel" value="beginner" required><span>Beginner</span></label>
+            <label class="quiz-option"><input type="radio" name="skillLevel" value="intermediate"><span>Intermediate</span></label>
+            <label class="quiz-option"><input type="radio" name="skillLevel" value="advanced"><span>Advanced but rusty</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="3">
+          <h2 class="quiz-title">How do you learn best?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="learningStyle" value="step-by-step explanations" required><span>Step-by-step explanations</span></label>
+            <label class="quiz-option"><input type="radio" name="learningStyle" value="examples first"><span>Examples first</span></label>
+            <label class="quiz-option"><input type="radio" name="learningStyle" value="practice and feedback"><span>Practice and feedback</span></label>
+            <label class="quiz-option"><input type="radio" name="learningStyle" value="visual analogies"><span>Visual analogies</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="4">
+          <h2 class="quiz-title">How much time can you give per day?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="timeAvailability" value="lt30" required><span>Less than 30 minutes</span></label>
+            <label class="quiz-option"><input type="radio" name="timeAvailability" value="30to60"><span>30 to 60 minutes</span></label>
+            <label class="quiz-option"><input type="radio" name="timeAvailability" value="60to120"><span>1 to 2 hours</span></label>
+            <label class="quiz-option"><input type="radio" name="timeAvailability" value="gt120"><span>More than 2 hours</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="5">
+          <h2 class="quiz-title">What are you most interested in?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="checkbox" name="interests" value="DSA"><span>DSA</span></label>
+            <label class="quiz-option"><input type="checkbox" name="interests" value="Web Dev"><span>Web Dev</span></label>
+            <label class="quiz-option"><input type="checkbox" name="interests" value="AI"><span>AI</span></label>
+            <label class="quiz-option"><input type="checkbox" name="interests" value="System Design"><span>System Design</span></label>
+            <label class="quiz-option"><input type="checkbox" name="interests" value="Python"><span>Python</span></label>
+            <label class="quiz-option"><input type="checkbox" name="interests" value="JavaScript"><span>JavaScript</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="6">
+          <h2 class="quiz-title">Which areas feel hardest right now?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Fundamentals"><span>Fundamentals</span></label>
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Problem solving"><span>Problem solving</span></label>
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Consistency"><span>Consistency</span></label>
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Debugging"><span>Debugging</span></label>
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Math foundations"><span>Math foundations</span></label>
+            <label class="quiz-option"><input type="checkbox" name="difficultAreas" value="Project structure"><span>Project structure</span></label>
+          </div>
+        </section>
+
+        <section class="quiz-step" data-step="7">
+          <h2 class="quiz-title">What outcome do you want next?</h2>
+          <div class="quiz-options">
+            <label class="quiz-option"><input type="radio" name="outcomeGoal" value="Complete a focused study plan" required><span>Complete a focused study plan</span></label>
+            <label class="quiz-option"><input type="radio" name="outcomeGoal" value="Build portfolio-ready projects"><span>Build portfolio-ready projects</span></label>
+            <label class="quiz-option"><input type="radio" name="outcomeGoal" value="Improve interview confidence"><span>Improve interview confidence</span></label>
+            <label class="quiz-option"><input type="radio" name="outcomeGoal" value="Learn with more consistency"><span>Learn with more consistency</span></label>
+          </div>
+        </section>
+
+        <div class="quiz-actions">
+          <button type="button" class="auth-tab quiz-back" id="quizBackBtn">Back</button>
+          <button type="button" class="auth-submit" id="quizNextBtn">Next</button>
+          <button type="submit" class="auth-submit quiz-submit hidden" id="quizSubmitBtn">Start Chatting</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="./js/config.js"></script>
+  <script src="./js/api.js"></script>
+  <script src="./js/onboarding.js"></script>
+</body>
+</html>
